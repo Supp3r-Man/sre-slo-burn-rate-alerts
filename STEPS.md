@@ -15,7 +15,7 @@
 7. **First demo run** (20 s) before writing tests, to see whether the story was real. It was, with surprises: single-window detected exactly like multi-window, and the static threshold beat the policy on a moderate latency regression.
 8. **Wrote 45 tests** in four files, including exact-threshold boundaries (288 errors in 20 minutes at 1000/min is exactly 14.4x), a naive reference implementation of the whole state machine compared on 8 random seeds, and measurement tests on the real scenarios.
 9. **Mutation-checked:** 11 deliberate breaks on a fresh copy, one at a time, pattern-missed reporting. First run: 1 survivor (start-at-0). I replaced it with a realistic off-by-one (killed) and added a partial-window test; the original start-at-0 mutant stays alive because it is equivalent (negative-wrapped prefix sums give a negative total, which never fires).
-10. **Wrote README and this file** from the real final demo output, then committed locally. Not pushed; CI has not run.
+10. **Wrote README and this file** from the real final demo output, then committed locally. Pushed to both accounts; CI passed on Python 3.11 and 3.13.
 
 Problems and choices along the way:
 - Per-rule pages overstated pages (2 per outage); fixed with group-level dedupe, but both counts are reported for flapping.
